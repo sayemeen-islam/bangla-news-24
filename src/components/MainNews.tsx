@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-interface IMainNews {
+export interface IMainNews {
   id: string;
   title: string;
   description: string;
