@@ -31,7 +31,7 @@ const UserInfo = () => {
             <h2>{user?.name}</h2>
           </div>
 
-          <button onClick={handleSignOut} className="btn btn-error btn-xs">সাইন আউট</button>
+          <button onClick={handleSignOut} className="btn  btn-xs bg-red-700 hover:bg-red-800 text-white">সাইন আউট</button>
         </div>
       ) : (
         <div className="flex justify-center items-center gap-4">
