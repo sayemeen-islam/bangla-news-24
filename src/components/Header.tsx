@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import NavLinks from './NavLinks';
+import UserInfo from './UserInfo';
 
 
 const Header = () => {
@@ -16,10 +17,9 @@ const Header = () => {
           <span className='text-xs text-neutral-500 '>{date}</span>
         </div>
       </div>
-      <div className='sm:absolute sm:top-3 sm:right-10 flex justify-center items-center gap-4'>
-        <button className=' py-4 hover:cursor-pointer text-sm hover:text-red-700'>সাইন ইন</button>
-        <button className='btn btn-sm text-sm bg-red-700 hover:bg-red-800 text-white'>সাইন আপ</button>
-      </div>
+        <UserInfo></UserInfo>
+
+
       <NavLinks></NavLinks>
   
     </header>
