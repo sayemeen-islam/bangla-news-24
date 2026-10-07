@@ -1,7 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
-export interface IMainNews {
+interface IMainNews {
   id: string;
   title: string;
   description: string;
@@ -9,11 +10,7 @@ export interface IMainNews {
   imageUrl: string;
   imageAlt: string;
   category: string;
-  type: string;
-  isLive: boolean;
-  // firstPublished: any
-  // lastPublished: any
-  source: string;
+
 }
 
 const MainNews = ({ news }: { news: IMainNews[] }) => {
@@ -23,43 +20,45 @@ const MainNews = ({ news }: { news: IMainNews[] }) => {
 
   return (
     <div className=" flex gap-6  justify-between ">
-      <div className="card bg-base-100 flex-1 shadow-sm">
-        <figure>
-          <Image
-            src={firstNews.imageUrl}
-            alt={firstNews.imageAlt}
-            width={400}
-            height={400}
-            
-          />
-        </figure>
-        <div className="card-body">
-          <span className="text-xs font-semibold text-red-700">
-            {firstNews.category}
-          </span>
-          <h2 className="card-title mt-1 text-xl font-bold leading-snug text-neutral-900 ">
-            {firstNews.title}
-          </h2>
-          <p className="mt-2 line-clamp-3 text-sm text-neutral-600">
-            {firstNews.description}
-          </p>
+      <Link href={`/news/${firstNews.id}`} className="flex-1 group">
+        <div className="card bg-base-100  shadow-sm">
+          <figure className="relative w-full overflow-hidden rounded-t-xl">
+            <Image
+              src={firstNews.imageUrl}
+              alt={firstNews.imageAlt}
+              width={800}
+              height={500}
+              className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+              priority
+            />
+          </figure>
+          <div className="card-body">
+            <span className="text-xs font-semibold text-red-700">
+              {firstNews.category}
+            </span>
+            <h2 className="card-title mt-1 text-xl font-bold leading-snug text-neutral-900 group-hover:text-red-700">
+              {firstNews.title}
+            </h2>
+            <p className="mt-2 line-clamp-3 text-sm text-neutral-600">
+              {firstNews.description}
+            </p>
+          </div>
         </div>
-      </div>
+      </Link>
       <div className="grid gap-1 flex-1">
         {restNews.slice(1, 5).map((news: IMainNews) => (
-          <div
-            key={news.id}
-            className="card bg-base-100 card-sm shadow-sm"
-          >
-            <div className="card-body">
-              <span className="text-xs font-semibold text-red-700">
-                {news.category}
-              </span>
-              <h2 className="card-title mt-0.5 font-semibold leading-snug text-neutral-900">
-                {news.title}
-              </h2>
+          <Link href={`/news/${news.id}`} key={news.id}>
+            <div className="card bg-base-100 card-sm shadow-sm group">
+              <div className="card-body ">
+                <span className="text-xs font-semibold text-red-700">
+                  {news.category}
+                </span>
+                <h2 className="card-title mt-0.5 font-semibold leading-snug text-neutral-900  group-hover:text-red-700">
+                  {news.title}
+                </h2>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

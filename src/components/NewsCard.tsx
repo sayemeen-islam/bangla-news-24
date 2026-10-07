@@ -13,7 +13,7 @@ export interface INews {
 
 const NewsCard = ({ news }: { news: INews }) => {
   return (
-<Link href={`/news/${news.id}`}  className='transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'>    <article className="group card overflow-hidden bg-base-100 shadow-sm ">
+<Link href={`/news/${news.id}`}  className=''>    <article className="group card overflow-hidden bg-base-100 shadow-sm ">
       <figure className="relative h-52 w-full overflow-hidden">
         <Image
           src={news.imageUrl}
