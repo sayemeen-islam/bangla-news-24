@@ -22,14 +22,15 @@ const MainNews = ({ news }: { news: IMainNews[] }) => {
   console.log(restNews, "from mainNews");
 
   return (
-    <div className=" flex gap-4 ">
-      <div className="card bg-base-100 w-96 shadow-sm">
+    <div className=" flex gap-6  justify-between ">
+      <div className="card bg-base-100 flex-1 shadow-sm">
         <figure>
           <Image
             src={firstNews.imageUrl}
             alt={firstNews.imageAlt}
             width={400}
             height={400}
+            
           />
         </figure>
         <div className="card-body">
@@ -44,11 +45,11 @@ const MainNews = ({ news }: { news: IMainNews[] }) => {
           </p>
         </div>
       </div>
-      <div className="grid gap-1">
+      <div className="grid gap-1 flex-1">
         {restNews.slice(1, 5).map((news: IMainNews) => (
           <div
             key={news.id}
-            className="card w-96 bg-base-100 card-sm shadow-sm"
+            className="card bg-base-100 card-sm shadow-sm"
           >
             <div className="card-body">
               <span className="text-xs font-semibold text-red-700">

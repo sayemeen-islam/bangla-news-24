@@ -1,4 +1,5 @@
 import MainNews from "@/components/MainNews";
+import MostRead from "@/components/MostRead";
 import NewsCard from "@/components/NewsCard";
 
 interface IOtherSection {
@@ -23,7 +24,7 @@ export default async function Home() {
 
   return (
     <div className="mt-5">
-      <div className="grid grid-cols-3  gap-8">
+      <div className="grid grid-cols-3  gap-10">
         {/* mainNews */}
         <div className="col-span-2">
           <MainNews news={mainNews}></MainNews>
@@ -45,7 +46,9 @@ export default async function Home() {
         </div>
 
         {/* mostRead */}
-        <div className="   col-span-1"></div>
+        <div className="   col-span-1">
+          <MostRead></MostRead>
+        </div>
       </div>
     </div>
   );
