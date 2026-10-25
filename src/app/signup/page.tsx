@@ -66,7 +66,7 @@ const SignupPage = () => {
             name="email"
             type="email"
             className="input w-md"
-            placeholder="Email"
+            placeholder="ছবির URL দিন"
           />
 
           <label className="label text-sm text-neutral-700">পাসওয়ার্ড</label>

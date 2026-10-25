@@ -8,6 +8,7 @@ const db = client.db("bangla_news_24");
 export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
+    autoSignIn: false,
   },
   socialProviders: {
     google: {
